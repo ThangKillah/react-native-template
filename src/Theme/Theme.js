@@ -2,38 +2,38 @@
  * This file defines the base application theme.
  *
  */
- import {
-   DefaultTheme as PaperDefaultTheme,
-   DarkTheme as PaperDarkTheme
- } from 'react-native-paper'
+import {
+  DefaultTheme as PaperDefaultTheme,
+  DarkTheme as PaperDarkTheme,
+} from 'react-native-paper';
 import {
   DefaultTheme as NavigationDefaultTheme,
-  DarkTheme as NavigationDarkTheme
-} from '@react-navigation/native'
-import { Colors, ColorsDarkMode } from '@/Theme'
+  DarkTheme as NavigationDarkTheme,
+} from '@react-navigation/native';
+import { Colors, ColorsDarkMode } from '@/Theme';
 
 export const PaperThemeDefault = {
   ...PaperDefaultTheme,
   colors: {
     ...PaperDefaultTheme.colors,
     primary: Colors.primary,
-    background: Colors.backgroundSecondary
-  }
-}
+    background: Colors.backgroundSecondary,
+  },
+};
 
 export const PaperThemeDark = {
   ...PaperDarkTheme,
   colors: {
     ...PaperDarkTheme.colors,
     primary: ColorsDarkMode.primary,
-    background: ColorsDarkMode.backgroundSecondary
-  }
-}
+    background: ColorsDarkMode.backgroundSecondary,
+  },
+};
 
 export const CombinedDefaultTheme = {
   ...PaperDefaultTheme,
-  ...NavigationDefaultTheme
-}
+  ...NavigationDefaultTheme,
+};
 
 export const CombinedDarkTheme = {
   ...PaperDarkTheme,
@@ -42,6 +42,6 @@ export const CombinedDarkTheme = {
     ...NavigationDarkTheme.colors,
     background: ColorsDarkMode.backgroundPrimary,
     //card: ColorsDarkMode.backgroundSecondary,
-    text: ColorsDarkMode.white
-  }
-}
+    text: ColorsDarkMode.white,
+  },
+};

@@ -2,11 +2,11 @@ import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 
-const BlurredBackground = ({children}) =>
+const BlurredBackground = ({ children }) =>
   Platform.OS === 'ios' ? (
     <View style={styles.container}>
-      <BlurView blurType="chromeMaterial" style={styles.blurView} >
-      {children}
+      <BlurView blurType="chromeMaterial" style={styles.blurView}>
+        {children}
       </BlurView>
     </View>
   ) : (

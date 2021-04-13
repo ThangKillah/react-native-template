@@ -8,12 +8,12 @@ export default {
   profile: 'Profil',
   change: {
     language: 'Changez votre langue',
-    mode: 'Changez votre thème'
+    mode: 'Changez votre thème',
   },
   actions: {
     continue: 'Continuer',
     login: 'Connexion',
-    change: 'Changements'
+    change: 'Changements',
   },
   example: {
     helloUser: 'Je suis un faux utilisateur, mon nom est {{name}}',
@@ -21,4 +21,4 @@ export default {
       userId: "Entrer un id d'utilisateur",
     },
   },
-}
+};

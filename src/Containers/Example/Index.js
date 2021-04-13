@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { View, ActivityIndicator, Text, TextInput } from 'react-native'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { View, ActivityIndicator, Text, TextInput } from 'react-native';
 
-import { Brand } from '@/Components'
-import { Common, Fonts, Gutters, Layout } from '@/Theme'
-import FetchOne from '@/Store/User/FetchOne'
-import { useTranslation } from 'react-i18next'
+import { Brand } from '@/Components';
+import { Common, Fonts, Gutters, Layout } from '@/Theme';
+import FetchOne from '@/Store/User/FetchOne';
+import { useTranslation } from 'react-i18next';
 
 const IndexExampleContainer = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user.item)
+  const user = useSelector((state) => state.user.item);
   const fetchOneUserLoading = useSelector(
-    (state) => state.user.fetchOne.loading,
-  )
-  const fetchOneUserError = useSelector((state) => state.user.fetchOne.error)
+    (state) => state.user.fetchOne.loading
+  );
+  const fetchOneUserError = useSelector((state) => state.user.fetchOne.error);
 
-  const [userId, setUserId] = useState('1')
+  const [userId, setUserId] = useState('1');
 
   const fetch = (id) => {
-    setUserId(id)
-    dispatch(FetchOne.action(id))
-  }
+    setUserId(id);
+    dispatch(FetchOne.action(id));
+  };
 
   return (
     <View style={[Layout.fill, Layout.colCenter, Gutters.smallHPadding]}>
@@ -59,7 +59,7 @@ const IndexExampleContainer = () => {
         />
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default IndexExampleContainer
+export default IndexExampleContainer;

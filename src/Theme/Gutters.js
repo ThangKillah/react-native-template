@@ -1,8 +1,8 @@
 /**
  * This file contains metric styles that are global to the application.
  */
-import { MetricsSizes } from './Variables'
-import { StyleSheet } from 'react-native'
+import { MetricsSizes } from './Variables';
+import { StyleSheet } from 'react-native';
 
 /**
  * Generate Styles depending on MetricsSizes vars availabled at ./Theme/Variables
@@ -59,6 +59,6 @@ export const Gutters = StyleSheet.create({
         paddingHorizontal: value,
       },
     }),
-    {},
+    {}
   ),
-})
+});

@@ -4,4 +4,4 @@
 
 export const Images = {
   logo: require('@/Assets/Images/TOM.png'),
-}
+};

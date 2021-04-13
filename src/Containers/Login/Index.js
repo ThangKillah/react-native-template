@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { View, ActivityIndicator, ScrollView } from 'react-native'
-import { Text, TextInput, Button } from 'react-native-paper'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { Text, TextInput, Button } from 'react-native-paper';
 
-import { Brand } from '@/Components'
-import { Common, Fonts, Gutters, Layout } from '@/Theme'
-import { useTranslation } from 'react-i18next'
-
+import { Brand } from '@/Components';
+import { Common, Fonts, Gutters, Layout } from '@/Theme';
+import { useTranslation } from 'react-i18next';
 
 const IndexLoginContainer = (props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   let [state, setState] = useState({
-    email: "",
-    password: "",
-    showPassword: false
+    email: '',
+    password: '',
+    showPassword: false,
   });
 
   const { email, password, showPassword } = state;
 
-  const login = () => props.navigation.navigate("Homepage");
-  const forgot = () => props.navigation.navigate("Forgot");
+  const login = () => props.navigation.navigate('Homepage');
+  const forgot = () => props.navigation.navigate('Forgot');
 
   return (
-    <View style={[
-      Layout.fill,
-      Layout.colHCenter,
-      Gutters.largeHPadding
-    ]}>
-      <View style={[[
-        Layout.colCenter,
-        Gutters.largeVPadding,
-        //Common.backgroundPrimary
-      ]]}>
+    <View style={[Layout.fill, Layout.colHCenter, Gutters.largeHPadding]}>
+      <View
+        style={[
+          [
+            Layout.colCenter,
+            Gutters.largeVPadding,
+            //Common.backgroundPrimary
+          ],
+        ]}
+      >
         <Brand />
       </View>
       <View
@@ -49,9 +48,7 @@ const IndexLoginContainer = (props) => {
           label={t('email')}
           value={email}
           mode="outlined"
-          onChangeText={(email) =>
-            setState((prev) => ({ ...prev, email }))
-          }
+          onChangeText={(email) => setState((prev) => ({ ...prev, email }))}
           style={[Gutters.largeBMargin]}
         />
         <TextInput
@@ -78,10 +75,17 @@ const IndexLoginContainer = (props) => {
         <View style={[Gutters.largeVMargin, Layout.alignItemsEnd]}>
           <Text onPress={forgot}>Forgot your password?</Text>
         </View>
-        <Button style={[Gutters.largeHMargin]} raised mode="contained" onPress={login}>{t('actions.login')}</Button>
+        <Button
+          style={[Gutters.largeHMargin]}
+          raised
+          mode="contained"
+          onPress={login}
+        >
+          {t('actions.login')}
+        </Button>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default IndexLoginContainer
+export default IndexLoginContainer;

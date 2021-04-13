@@ -1,8 +1,8 @@
 /**
  * This file contains all application's style relative to fonts
  */
-import { StyleSheet } from 'react-native'
-import { FontSize } from './Variables'
+import { StyleSheet } from 'react-native';
+import { FontSize } from './Variables';
 
 export const Fonts = StyleSheet.create({
   textSmall: {
@@ -38,4 +38,4 @@ export const Fonts = StyleSheet.create({
   textRight: {
     textAlign: 'right',
   },
-})
+});

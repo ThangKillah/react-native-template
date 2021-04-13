@@ -8,17 +8,17 @@ export default {
   profile: 'Profilo',
   change: {
     language: 'Cambia la tua lingua',
-    mode: 'Cambia il tuo theme'
+    mode: 'Cambia il tuo theme',
   },
   actions: {
     continue: 'Continua',
     login: 'Accedi',
-    change: 'Cambia'
+    change: 'Cambia',
   },
   example: {
     helloUser: 'Sono un utente fake, mi chiamo {{name}}',
     labels: {
-      userId: "Immettere un ID utente",
+      userId: 'Immettere un ID utente',
     },
   },
-}
+};

@@ -2,12 +2,8 @@ import * as React from 'react';
 import Animated from 'react-native-reanimated';
 import Svg, { G, Path, Circle, PathProps, CircleProps } from 'react-native-svg';
 
-const AnimatedPath = Animated.createAnimatedComponent(
-  Path
-)
-const AnimatedCircle = Animated.createAnimatedComponent(
-  Circle
-)
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 Animated.addWhitelistedNativeProps({
   stroke: true,

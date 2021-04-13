@@ -74,5 +74,8 @@
     ],
     "timers": "fake",
     "testEnvironment": "jsdom"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

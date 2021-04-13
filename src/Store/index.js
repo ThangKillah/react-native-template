@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { combineReducers } from 'redux' //come mai non usare quello di @reduxjs/toolkit
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { combineReducers } from 'redux'; //come mai non usare quello di @reduxjs/toolkit
 import {
   persistReducer,
   persistStore,
@@ -9,26 +9,26 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
-import { configureStore } from '@reduxjs/toolkit'
+} from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit';
 
-import startup from './Startup'
-import user from './User'
-import settings from './Settings'
+import startup from './Startup';
+import user from './User';
+import settings from './Settings';
 
 const reducers = combineReducers({
   settings,
   startup,
-  user
-})
+  user,
+});
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   whitelist: ['settings'],
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, reducers)
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -37,17 +37,17 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
+    });
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
-      const createDebugger = require('redux-flipper').default
-      middlewares.push(createDebugger())
+      const createDebugger = require('redux-flipper').default;
+      middlewares.push(createDebugger());
     }
 
-    return middlewares
+    return middlewares;
   },
-})
+});
 
-const persistor = persistStore(store)
+const persistor = persistStore(store);
 
-export { store, persistor }
+export { store, persistor };

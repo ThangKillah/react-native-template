@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const Layout = StyleSheet.create({
   /* Column Layouts */
@@ -102,4 +102,4 @@ export const Layout = StyleSheet.create({
   rotate90Inverse: {
     transform: [{ rotate: '-90deg' }],
   },
-})
+});

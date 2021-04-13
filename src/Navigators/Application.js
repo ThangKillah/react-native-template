@@ -1,37 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import { IndexSplashScreenContainer } from '@/Containers'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { IndexSplashScreenContainer } from '@/Containers';
+import { useSelector } from 'react-redux';
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
 let MainNavigator = require('@/Navigators/Main').default;
 
 // @refresh reset
 const ApplicationNavigator = () => {
-  const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
+  const [isApplicationLoaded, setIsApplicationLoaded] = useState(false);
 
-  const applicationIsLoading = useSelector((state) => state.startup.loading)
+  const applicationIsLoading = useSelector((state) => state.startup.loading);
 
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
-      MainNavigator = require('@/Navigators/Main').default
-      setIsApplicationLoaded(true)
+      MainNavigator = require('@/Navigators/Main').default;
+      setIsApplicationLoaded(true);
     }
-  }, [applicationIsLoading])
+  }, [applicationIsLoading]);
 
   return (
     <Stack.Navigator headerMode={'none'}>
-      <Stack.Screen name="SplashScreen" component={IndexSplashScreenContainer} />
       <Stack.Screen
-          name="Main"
-          component={MainNavigator}
-          options={{
-            animationEnabled: false,
-          }}
+        name="SplashScreen"
+        component={IndexSplashScreenContainer}
+      />
+      <Stack.Screen
+        name="Main"
+        component={MainNavigator}
+        options={{
+          animationEnabled: false,
+        }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default ApplicationNavigator
+export default ApplicationNavigator;

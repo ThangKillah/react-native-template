@@ -93,7 +93,7 @@ const IndexInstallationContainer = (props) => {
 
   const theme = [
     { title: 'Light', value: 'light' },
-    { title: 'Dark', value: 'dark' }
+    { title: 'Dark', value: 'dark' },
   ];
 
   const bottomSheetTheme = useCallback(
@@ -108,14 +108,16 @@ const IndexInstallationContainer = (props) => {
                 onPress={() => {
                   //dismiss();
                   changeButtonTheme(value);
-                }}>
+                }}
+              >
                 <View
                   style={[
                     Layout.row,
                     Layout.rowHCenter,
                     Gutters.tinyVMargin,
                     Gutters.tinyHMargin,
-                  ]}>
+                  ]}
+                >
                   <View style={[Layout.fill]}>
                     <Text>{title}</Text>
                   </View>
@@ -158,68 +160,72 @@ const IndexInstallationContainer = (props) => {
   */
 
   const bottomSheetLang = () =>
-      present(
-        <View style={{ flex: 1, backgroundColor }}>
-          <Text>{settings.item.lang}</Text>
-          {lang.map(({ title, value }) => {
-            return (
-              <TouchableWithoutFeedback
-                key={value}
-                onPress={() => {
-                  //dismiss();
-                  changeButtonLang(value);
-                }}>
-                <View
-                  style={[
-                    Layout.row,
-                    Layout.rowHCenter,
-                    Gutters.tinyVMargin,
-                    Gutters.tinyHMargin,
-                  ]}>
-                  <View style={[Layout.fill]}>
-                    <Text>{title}</Text>
-                  </View>
-                  {settings.item.lang === value ? (
-                    <Svgs.RadioButton size={32} color={backgroundColor} />
-                  ) : (
-                    <Svgs.RadioButtonEmpty size={32} color={backgroundColor} />
-                  )}
+    present(
+      <View style={{ flex: 1, backgroundColor }}>
+        <Text>{settings.item.lang}</Text>
+        {lang.map(({ title, value }) => {
+          return (
+            <TouchableWithoutFeedback
+              key={value}
+              onPress={() => {
+                //dismiss();
+                changeButtonLang(value);
+              }}
+            >
+              <View
+                style={[
+                  Layout.row,
+                  Layout.rowHCenter,
+                  Gutters.tinyVMargin,
+                  Gutters.tinyHMargin,
+                ]}
+              >
+                <View style={[Layout.fill]}>
+                  <Text>{title}</Text>
                 </View>
-              </TouchableWithoutFeedback>
-            );
-          })}
-        </View>,
-        {
-          snapPoints: ['25%'],
-          animationDuration: 10,
-          overlayComponent: BottomSheetOverlay,
-          overlayOpacity: 0.5,
-          dismissOnOverlayPress: true,
-          //handleComponent: handle,
-          //backgroundComponent: BlurredBackground,
-          //onChange: handleChange,
-        }
-      );
+                {settings.item.lang === value ? (
+                  <Svgs.RadioButton size={32} color={backgroundColor} />
+                ) : (
+                  <Svgs.RadioButtonEmpty size={32} color={backgroundColor} />
+                )}
+              </View>
+            </TouchableWithoutFeedback>
+          );
+        })}
+      </View>,
+      {
+        snapPoints: ['25%'],
+        animationDuration: 10,
+        overlayComponent: BottomSheetOverlay,
+        overlayOpacity: 0.5,
+        dismissOnOverlayPress: true,
+        //handleComponent: handle,
+        //backgroundComponent: BlurredBackground,
+        //onChange: handleChange,
+      }
+    );
 
-      const a = (
-        <Button
-          style={[Gutters.largeHMargin, Gutters.largeBMargin]}
-          raised
-          mode="contained"
-          onPress={bottomSheetLang}>
-          {t('change.language')}
-        </Button>
-      );
+  const a = (
+    <Button
+      style={[Gutters.largeHMargin, Gutters.largeBMargin]}
+      raised
+      mode="contained"
+      onPress={bottomSheetLang}
+    >
+      {t('change.language')}
+    </Button>
+  );
 
-      const b = (
-        <Button
-          style={[Gutters.largeHMargin, Gutters.largeBMargin]}
-          raised
-          mode="contained"
-          onPress={bottomSheetTheme}>
-          {t('change.mode')}
-        </Button>
-      );
+  const b = (
+    <Button
+      style={[Gutters.largeHMargin, Gutters.largeBMargin]}
+      raised
+      mode="contained"
+      onPress={bottomSheetTheme}
+    >
+      {t('change.mode')}
+    </Button>
+  );
 
   const slides = [
     {
@@ -235,7 +241,7 @@ const IndexInstallationContainer = (props) => {
       text: '',
       backgroundColor: '#ffc107',
       svgs: <Svgs.Language fill={backgroundColor} size={128} />,
-      button: a
+      button: a,
     },
     {
       key: 'three',
@@ -243,7 +249,7 @@ const IndexInstallationContainer = (props) => {
       text: '',
       backgroundColor: '#4caf50',
       svgs: <Svgs.Theme fill={backgroundColor} size={128} />,
-      button: b
+      button: b,
     },
   ];
 
@@ -296,7 +302,8 @@ const IndexInstallationContainer = (props) => {
           paddingHorizontal: 16,
           paddingVertical: 5,
           backgroundColor,
-        }}>
+        }}
+      >
         <View
           style={[
             styles.indicator,

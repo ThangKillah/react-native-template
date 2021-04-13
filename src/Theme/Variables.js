@@ -17,8 +17,8 @@ export const Colors = {
   success: '#28a745',
   error: '#dc3545',
   backgroundPrimary: '#f2f2f2',
-  backgroundSecondary: '#ffffff'
-}
+  backgroundSecondary: '#ffffff',
+};
 
 /**
  * Colors Dark mode
@@ -32,8 +32,8 @@ export const ColorsDarkMode = {
   success: '#28a745',
   error: '#dc3545',
   backgroundPrimary: '#303030',
-  backgroundSecondary: '#222222'
-}
+  backgroundSecondary: '#222222',
+};
 
 /**
  * FontSize
@@ -41,19 +41,19 @@ export const ColorsDarkMode = {
 export const FontSize = {
   small: 12,
   regular: 14,
-  large: 18
-}
+  large: 18,
+};
 
 /**
  * Metrics Sizes
  */
-const tiny = 5 // 5
-const small = tiny * 2 // 10
-const regular = tiny * 3 // 15
-const large = regular * 2 // 30
+const tiny = 5; // 5
+const small = tiny * 2; // 10
+const regular = tiny * 3; // 15
+const large = regular * 2; // 30
 export const MetricsSizes = {
   tiny,
   small,
   regular,
-  large
-}
+  large,
+};
