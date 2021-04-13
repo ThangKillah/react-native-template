@@ -10,7 +10,7 @@ import {
   DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme,
 } from '@react-navigation/native';
-import { Colors, ColorsDarkMode } from '@/Theme';
+import { Colors, ColorsDarkMode } from './Variables';
 
 export const PaperThemeDefault = {
   ...PaperDefaultTheme,
