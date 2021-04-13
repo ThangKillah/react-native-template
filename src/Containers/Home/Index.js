@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { Text, Button } from 'react-native-paper';
+import { Text, Button, Appbar, Drawer } from 'react-native-paper';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerActions } from '@react-navigation/native';
+
 import {
-  Common,
   Fonts,
   Gutters,
   Layout,
@@ -14,7 +16,6 @@ import {
 import Settings from '@/Store/Settings/Init';
 import { useTranslation } from 'react-i18next';
 
-import { IndexLoginContainer, IndexInstallationContainer } from '@/Containers';
 import { useSafeArea } from 'react-native-safe-area-context';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -25,11 +26,62 @@ const Home = (props) => {
   const back = () => {
     props.navigation.navigate('Login');
   }
+  const [active, setActive] = useState('');
+
+  const _goBack = () => console.log('Went back');
+
+  const _handleSearch = () => console.log('Searching');
+
+  const _handleMore = () => {
+      console.log('Shown more');
+      props.navigation.dispatch(DrawerActions.openDrawer());
+  }
+
+    function DrawerContent() {
+        return (
+            <Drawer.Section>
+                <Drawer.Item
+                    label="First Item"
+                    active={active === 'first'}
+                    onPress={() => setActive('first')}
+                />
+                <Drawer.Item
+                    label="Second Item"
+                    active={active === 'second'}
+                    onPress={() => setActive('second')}
+                />
+            </Drawer.Section>
+        );
+    }
+
+    function Content() {
+        return (
+            <>
+                <Appbar.Header>
+                    <Appbar.BackAction onPress={() => _goBack()} />
+                    <Appbar.Content title="Title" subtitle="Subtitle" />
+                    <Appbar.Action icon="magnify" onPress={() => _handleSearch()} />
+                    <Appbar.Action icon="dots-vertical" onPress={() => _handleMore()} />
+                </Appbar.Header>
+
+
+                <View style={[Layout.fill, Layout.colCenter]}>
+                    <Text style={[Fonts.titleLarge]}>Home</Text>
+                    <Button style={[Gutters.largeHMargin]} raised mode="contained" onPress={back}>{t('back')}</Button>
+                </View>
+            </>
+        )
+    }
+
+
+    const MyDrawer = createDrawerNavigator();
+
   return (
-    <View style={[Layout.fill, Layout.colCenter]}>
-      <Text style={[Fonts.titleLarge]}>Home</Text>
-      <Button style={[Gutters.largeHMargin]} raised mode="contained" onPress={back}>{t('back')}</Button>
-    </View>
+     <>
+         <MyDrawer.Navigator drawerContent={() => <DrawerContent />} drawerPosition="right">
+             <MyDrawer.Screen name="Home" component={Content} />
+         </MyDrawer.Navigator>
+     </>
   );
 };
 
@@ -97,11 +149,6 @@ const IndexHomeContainer = (props) => {
         inactiveColor: 'rgba(207,235,239,0)',
       },
     },
-  };
-
-  const back = () => {
-    //props.navigation.goBack();
-    //props.navigation.navigate("Login");
   };
 
   // hooks
