@@ -32,10 +32,11 @@ const Profile = (props) => {
     </>
   );
 
-  return MasterPage(props, content, {
+  const optionTop = {
     title: 'Profile',
     backPage: 'Login',
-  });
+  };
+  return <MasterPage {...props} contentProps={content} optionTop={optionTop} />;
 };
 
 export default Profile;

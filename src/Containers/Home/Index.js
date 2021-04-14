@@ -24,12 +24,12 @@ const Home = (props) => {
       </Button>
     </>
   );
-
-  return MasterPage(props, content, {
+  const optionTop = {
     title: 'Home',
     subTitle: '',
     backPage: 'Login',
-  });
+  };
+  return <MasterPage {...props} contentProps={content} optionTop={optionTop} />;
 };
 
 export default Home;

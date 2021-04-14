@@ -7,13 +7,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerActions } from '@react-navigation/native';
 import { navigateAndSimpleReset } from '@/Navigators/Root';
 
-const MasterPage = (
-  props,
-  ContentProps,
-  optionTop = null,
-  optionBottom = null
-) => {
+const MasterPage = (props) => {
   const [active, setActive] = useState('');
+  const { contentProps, optionTop } = props;
 
   const _goBack = () => {
     console.log('press back');
@@ -86,7 +82,7 @@ const MasterPage = (
           <Appbar.Action icon="dots-vertical" onPress={() => _handleMore()} />
         </Appbar.Header>
 
-        <View style={[Layout.fill, Layout.colCenter]}>{ContentProps}</View>
+        <View style={[Layout.fill, Layout.colCenter]}>{contentProps}</View>
       </>
     );
   }
