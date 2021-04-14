@@ -6,6 +6,7 @@ import {
   IndexLoginContainer,
   IndexForgotContainer,
   IndexHomeContainer,
+  IndexProfileContainer,
 } from '@/Containers';
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ const MainNavigator = () => {
       <Stack.Screen name="Login" component={IndexLoginContainer} />
       <Stack.Screen name="Forgot" component={IndexForgotContainer} />
       <Stack.Screen name="Homepage" component={IndexHomeContainer} />
+      <Stack.Screen name="Profile" component={IndexProfileContainer} />
     </Stack.Navigator>
   );
 };
